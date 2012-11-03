@@ -15,7 +15,13 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  flunk "Unimplemented"
+ 
+  row1 = page.find('table#movies tbody/tr', :text => e1).path.match(/tr\[(\d+)\]/)[1].to_i
+  row2 = page.find('table#movies tbody/tr', :text => e2).path.match(/tr\[(\d+)\]/)[1].to_i
+  assert_operator row1, :<, row2
+  
+ # page.body.should =~ Regexp.compile(e1 + '.*?' + e2, Regexp::MULTILINE)
+  
 end
 
 # Make it easier to express checking or unchecking several boxes at once
