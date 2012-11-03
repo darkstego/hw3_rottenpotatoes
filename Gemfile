@@ -12,7 +12,12 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'capybara'
   gem 'launchy'
-  gem 'rspec-rails'
+  gem 'rspec-rails'  
+  #added for version error
+  gem 'linecache19', :git => 'git://github.com/mark-moseley/linecache'
+  gem 'ruby-debug-base19x', '~> 0.11.30.pre4'
+  gem 'ruby-debug19'
+  
 end
 group :test do
   gem 'cucumber-rails'
